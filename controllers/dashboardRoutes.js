@@ -28,7 +28,7 @@ router.get("/", withAuth, async (req, res) => {
 
   const userPosts = postData.map(post => post.get({ plain: true }));
 
-  // console.log(userPosts);
+  console.log(userPosts);
 
   res.render("admin-all-posts", { layout: "dashboard", userPosts });
 });
@@ -37,9 +37,14 @@ router.get("/", withAuth, async (req, res) => {
 // It should display a form for creating a new post
 router.get("/new", async (req, res) => {
   try {
-
-  } catch {
-
+    const userData = await User.findOne({
+      where: {
+        id: req.session.userId,
+      },
+    });
+    res.render('new-post', {layout:"dashboard", userData})
+  } catch(err){
+    res.status(500).json(err)
   }
 });
 
