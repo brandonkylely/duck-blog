@@ -18,7 +18,9 @@ router.get("/", async (req, res) => {
 
 // TODO - create a GET route for getting a single post with its id
 // this page can be viewed without logging in
-router.get("/post/:id", (req, res) => {});
+router.get("/post/:id", (req, res) => {
+
+});
 
 // This route renders the login page, which has been completed for you
 router.get("/login", (req, res) => {
