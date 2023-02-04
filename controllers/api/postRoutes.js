@@ -6,12 +6,12 @@ const withAuth = require("../../utils/auth");
 // This should be a protected route, so you'll need to use the withAuth middleware
 router.post("/", withAuth, async (req, res) => {
   try {
-    const userData = await User.findOne({
-      where: { id: req.session.userId },
-    });
+    // const userData = await User.findOne({
+    //   where: { id: req.session.userId },
+    // });
 
-    const postData = await Post.create({
-      username: userData.username,
+    await Post.create({
+      userId: req.session.userId,
       title: req.body.title,
       body: req.body.body,
     });

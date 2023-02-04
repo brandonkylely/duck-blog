@@ -16,7 +16,7 @@ const submitPost = async function(event) {
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
-      alert('Failed to login');
+      alert('Failed to post');
     }
   };
   
