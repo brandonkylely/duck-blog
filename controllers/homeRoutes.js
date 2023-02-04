@@ -6,7 +6,7 @@ const { Post, Comment, User } = require("../models/");
 // this page can be viewed without logging in
 router.get("/", async (req, res) => {
   try {
-    const postData = await Post.findAll({order: [["createdAt", "DESC"]],});
+    const postData = await Post.findAll({order: [["createdAt", "DESC"]]});
 
     const allPosts = postData.map((post) => post.get({ plain: true }));
 

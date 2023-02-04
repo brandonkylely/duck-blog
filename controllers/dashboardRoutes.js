@@ -22,9 +22,9 @@ router.get("/", withAuth, async (req, res) => {
       order: [["createdAt", "DESC"]],
   });
 
-  const posts = postData.map(post => post.get({ plain: true }));
+  const userPosts = postData.map(post => post.get({ plain: true }));
 
-  res.render("admin-all-posts", { layout: "dashboard", posts });
+  res.render("admin-all-posts", { layout: "dashboard", userPosts });
 });
 
 // TODO - create logic for the GET route for /new that renders the new post page
