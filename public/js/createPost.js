@@ -1,8 +1,8 @@
-const createPost = async function(event) {
-    event.preventDefault();
+const submitPost = async function(event) {
+    // event.preventDefault();
   
-    const newPostTitle = document.querySelector('#');
-    const newPostBody = document.querySelector('#');
+    const newPostTitle = document.querySelector('#new-post-title');
+    const newPostBody = document.querySelector('#new-post-body');
   
     const response = await fetch('/api/post', {
       method: 'POST',
@@ -14,12 +14,12 @@ const createPost = async function(event) {
     });
   
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace('/dashboard');
     } else {
       alert('Failed to login');
     }
   };
   
   document
-    .querySelector('#')
-    .addEventListener('submit', createPost);
+    .querySelector('#submit-post-button')
+    .addEventListener('submit', submitPost);

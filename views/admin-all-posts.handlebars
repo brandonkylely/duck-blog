@@ -1,9 +1,18 @@
 
 {{!-- TODO - write the template to show all the user's posts on the /dashboard route --}}
 {{!-- <h1>This is the dashboard main page that should display all of a users posts</h1> --}}
+<h3>your posts</h3>
 {{#each userPosts as |post|}}
 <h4>{{post.title}}</h4>
 <li>
     {{post.user.username}} says: {{post.body}}
 </li>
 {{/each}}
+<div class="flex-contatiner">
+    <h4>create a new post</h4>
+    <label class="text-white form-label" for="new-post-title">title</label>
+    <textarea name="new-post-title" id="new-post-title" cols="30" rows="5"></textarea>
+    <label class="text-white form-label" for="new-post-body">body</label>
+    <textarea name="new-post-body" id="new-post-body" cols="30" rows="5"></textarea>
+    <button type="submit" id="submit-post-button">submit</button>
+</div>
