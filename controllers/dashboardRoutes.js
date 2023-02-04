@@ -4,7 +4,7 @@
 // All of these routes will be protected by the withAuth middleware function.
 
 const router = require("express").Router();
-const { Post } = require("../models/");
+const { User, Post, Comment } = require("../models/");
 const withAuth = require("../utils/auth");
 
 // TODO - create logic for the GET route for / that renders the dashboard homepage
@@ -15,7 +15,7 @@ router.get("/", withAuth, async (req, res) => {
       where: { userId: req.session.userId },
       include: [
           {
-              model: {User},
+              model: User,
               attributes: ["username"],
           },
       ],
