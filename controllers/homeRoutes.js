@@ -14,10 +14,16 @@ router.get("/", async (req, res) => {
             model: User,
             attributes: ["username"],
         },
+        {
+          model: Comment,
+          include: [{ model: User, attributes: ["username"] }],
+      },
     ],
     });
 
     const allPosts = postData.map((post) => post.get({ plain: true }));
+
+    // console.log(allPosts);
 
     res.render("homepage", { allPosts });
   } catch (err) {

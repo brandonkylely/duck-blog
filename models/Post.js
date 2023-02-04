@@ -6,6 +6,13 @@ class Post extends Model {}
 
 Post.init(
   {
+    // id: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   primaryKey: true,
+    //   unique: true,
+    //   autoIncrement: true
+    // },
     title: DataTypes.STRING,
     body: DataTypes.STRING
   },
