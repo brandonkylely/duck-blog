@@ -29,8 +29,12 @@ router.get("/", withAuth, async (req, res) => {
 
 // TODO - create logic for the GET route for /new that renders the new post page
 // It should display a form for creating a new post
-router.get("/new", (req, res) => {
+router.get("/new", async (req, res) => {
+  try {
+    
+  } catch {
 
+  }
 });
 
 // TODO - create logic for the GET route for /edit/:id that renders the edit post page

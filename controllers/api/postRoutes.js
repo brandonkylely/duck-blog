@@ -11,7 +11,7 @@ router.post("/", withAuth, async (req, res) => {
     });
 
     const postData = await Post.create({
-      username: userData.id,
+      username: userData.username,
       title: req.body.title,
       body: req.body.body,
     });
