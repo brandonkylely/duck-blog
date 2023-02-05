@@ -4,7 +4,9 @@
 <h3>your posts</h3>
 {{#each userPosts as |post|}}
 <h4>{{post.title}}</h4>
-<li>
+<li data="{{post.id}}" class="post-id">
+    post id:{{post.id}}
+    <br>
     {{post.user.username}} says: {{post.body}}
     {{#each post.comments as |comment|}}
     <br>

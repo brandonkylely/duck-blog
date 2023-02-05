@@ -2,6 +2,8 @@
 {{!-- TODO - write the template to show all posts on the / route --}}
 {{!-- <h1>This is the home page that displays posts of all users</h1> --}}
 {{#each allPosts as |post|}}
+
+<div>
 <h4>{{post.title}}</h4>
 <li>
     {{post.user.username}} says: {{post.body}}
@@ -9,5 +11,15 @@
     <br>
     {{comment.user.username}} comments: {{comment.body}}
     {{/each}}
+<form class="form new-comment-form">
+  <div class="form-group">
+    <label for="new-comment-body">body</label>
+    <textarea class="form-input" id="new-comment-body" name="new-comment-body"></textarea>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary comment-button" data-postId="{{post.id}}">submit comment</button>
+  </div>
+</form>
 </li>
 {{/each}}
+</div>

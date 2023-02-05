@@ -7,8 +7,8 @@ const submitPost = async function (event) {
   const response = await fetch("/api/post", {
     method: "POST",
     body: JSON.stringify({
-      title: newPostTitle.textContent,
-      body: newPostBody.textContent,
+      title: newPostTitle.value,
+      body: newPostBody.value,
     }),
     headers: { "Content-Type": "application/json" },
   });
