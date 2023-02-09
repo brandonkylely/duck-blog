@@ -2,16 +2,6 @@
 {{!-- TODO - write the template to show all posts on the / route --}}
 {{!-- <h1>This is the home page that displays posts of all users</h1> --}}
 {{#each allPosts as |post|}}
-
-<div>
-<h4>{{post.title}}</h4>
-<li>
-    {{post.user.username}} says: {{post.body}}
-    {{#each post.comments as |comment|}}
-    <br>
-    {{comment.user.username}} comments: {{comment.body}}
-    {{/each}}
-<br>
-<a href="/dashboard/comment/{{post.id}}">write a comment</a>
+{{> main-post}}
 {{/each}}
 </div>

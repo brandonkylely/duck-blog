@@ -3,18 +3,10 @@
 {{!-- <h1>This is the dashboard main page that should display all of a users posts</h1> --}}
 <h3>your posts</h3>
 {{#each userPosts as |post|}}
-<h4>{{post.title}}</h4>
-<li>
-    post id:{{post.id}}
-    <br>
-    {{post.user.username}} says: {{post.body}}
-    {{#each post.comments as |comment|}}
-    <br>
-    {{comment.user.username}} comments: {{comment.body}}
-    {{/each}}
-<button data-postId="{{post.id}}" class="delete-post-button">delete post</button>
-</li>
+{{> admin-post}}
 {{/each}}
-
+<br>
 <a href="/dashboard/new">new post 2</a>
+{{#if userPosts}}
 <script src="/js/deletePost.js"></script>
+{{/if}}

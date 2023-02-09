@@ -1,0 +1,14 @@
+{{!-- call with {{> post}} --}}
+<h4>{{title}}</h4>
+<li>
+    post id:{{id}}
+    <br>
+    {{user.username}} says: {{body}}
+    <br>
+    posted at: {{format_date createdAt}}
+    {{#each comments as |comment|}}
+    <br>
+    {{comment.user.username}} comments: {{comment.body}}
+    {{/each}}
+<button data-postId="{{id}}" class="delete-post-button">delete post</button>
+</li>

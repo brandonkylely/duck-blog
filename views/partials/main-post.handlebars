@@ -1,0 +1,12 @@
+<div>
+<h4>{{title}}</h4>
+<li>
+    {{user.username}} says: {{body}}
+    {{#each comments as |comment|}}
+    <br>
+        posted at: {{format_date createdAt}}
+    <br>
+    {{comment.user.username}} comments: {{comment.body}}
+    {{/each}}
+<br>
+<a href="/dashboard/comment/{{id}}">write a comment</a>
