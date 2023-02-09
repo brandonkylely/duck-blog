@@ -27,7 +27,24 @@ router.post("/", withAuth, async (req, res) => {
 
 // TODO - create a PUT route for updating a post's title or body
 // This should be a protected route, so you'll need to use the withAuth middleware
-router.put("/:id", withAuth, (req, res) => {});
+router.put("/:id", withAuth, (req, res) => {
+  try {
+  Post.update(
+    {
+      title: req.body.title,
+      body: req.body.body,
+    },
+    {
+      where: {
+        id: req.params.id,
+      },
+    }
+  )
+  res.status(200).json({message: 'edited post'});
+  }catch (err) {
+    res.json(err);
+  }
+});
 
 // TODO - create a DELETE route for deleting a post with a specific id
 // This should be a protected route, so you'll need to use the withAuth middleware

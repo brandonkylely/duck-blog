@@ -68,7 +68,7 @@ router.get("/comment/:id", async (req, res) => {
 // const singlePost = postData.map(post => post.get({ plain: true }));
   const singlePost = postData.get({ plain: true });
   console.log(singlePost);
-    res.render('single-post', {layout:"dashboard", singlePost})
+    res.render('new-comment', {layout:"dashboard", singlePost})
   } catch(err){
     res.status(500).json(err)
   }
@@ -76,8 +76,29 @@ router.get("/comment/:id", async (req, res) => {
 
 // TODO - create logic for the GET route for /edit/:id that renders the edit post page
 // It should display a form for editing an existing post
-router.get("/edit/:id", (req, res) => {
+router.get("/edit/:id", withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findOne({
+      where: {
+        id: req.params.id,
+      },
+      include: [
+        {
+          model: User,
+          attributes: ["username"],
+        },
+        {
+          model: Comment,
+          include: [{ model: User, attributes: ["username"] }],
+        },
+      ],
+});
+  const singlePost = postData.get({ plain: true });
 
+  res.render('edit-post', {layout:"dashboard", singlePost})
+  }catch (err){
+    res.status(500).json(err)
+  }
 });
 
 module.exports = router;
