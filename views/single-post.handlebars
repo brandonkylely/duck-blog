@@ -2,14 +2,14 @@
 <br>
 <p>{{singlePost.body}}</p>
 <br>
-<p>created by {{singlePost.username}}</p>
-{{#each singlePost.comment as |comment|}}
+<p>created by {{singlePost.user.username}}</p>
+{{#each singlePost.comments as |comment|}}
     <p>{{comment.user.username}} comments: {{comment.body}}</p>
 {{/each}}
 
-<form class="form new-comment-form">
+<form class="form new-comment-form" data="{{singlePost.id}}">
   <div class="form-group">
-    <label for="new-comment-body">body</label>
+    <label for="new-comment-body">new comment</label>
     <textarea class="form-input" id="new-comment-body" name="new-comment-body"></textarea>
   </div>
   <div class="form-group">
@@ -17,3 +17,5 @@
   </div>
 </form>
 </li>
+
+<script src="/js/createComment.js"></script>

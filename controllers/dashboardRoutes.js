@@ -50,7 +50,7 @@ router.get("/new", async (req, res) => {
 
 router.get("/comment/:id", async (req, res) => {
   try {
-    const singlePost = await Post.findOne({
+    const postData = await Post.findOne({
       where: {
         id: req.params.id,
       },
@@ -66,6 +66,7 @@ router.get("/comment/:id", async (req, res) => {
       ],
 });
 // const singlePost = postData.map(post => post.get({ plain: true }));
+  const singlePost = postData.get({ plain: true });
   console.log(singlePost);
     res.render('single-post', {layout:"dashboard", singlePost})
   } catch(err){

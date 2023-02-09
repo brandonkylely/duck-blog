@@ -1,5 +1,5 @@
 const submitComment = async function (event) {
-    // event.preventDefault();
+    event.preventDefault();
 
     // const postId = document.querySelector(".comment-button").dataset.postId;
     const postId = this.dataset.postId;
