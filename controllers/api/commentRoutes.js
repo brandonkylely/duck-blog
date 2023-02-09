@@ -6,7 +6,7 @@ const withAuth = require("../../utils/auth");
 // This should be a protected route, so you'll need to use the withAuth middleware
 router.post("/", withAuth, async (req, res) => {
   try {
-    
+
     const commentData = Comment.create({
       body: req.body.body,
       userId: req.session.userId,
@@ -15,6 +15,19 @@ router.post("/", withAuth, async (req, res) => {
 
 
     res.status(200).json({message: "comment created"});
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.delete("/:id", withAuth, async (req, res) => {
+  try{
+    Comment.destroy({
+      where: {
+        id: req.params.id,
+      }
+    })
+    res.status(200).json({message: "comment destroyed"});
   } catch (err) {
     res.status(400).json(err);
   }

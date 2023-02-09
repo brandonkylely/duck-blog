@@ -31,6 +31,17 @@ router.put("/:id", withAuth, (req, res) => {});
 
 // TODO - create a DELETE route for deleting a post with a specific id
 // This should be a protected route, so you'll need to use the withAuth middleware
-router.delete("/:id", withAuth, (req, res) => {});
+router.delete("/:id", withAuth, async (req, res) => {
+  try{
+    Post.destroy({
+      where: {
+        id: req.params.id,
+      }
+    })
+    res.status(200).json({message: "post destroyed"});
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 
 module.exports = router;
