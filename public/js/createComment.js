@@ -1,8 +1,8 @@
 const submitComment = async function (event) {
     event.preventDefault();
 
-    // const postId = document.querySelector(".comment-button").dataset.postId;
-    const postId = this.dataset.postId;
+    const postIdEl = document.querySelector(".new-comment-form")
+    const postId = postIdEl.getAttribute('data-postId');
     const newCommentBody = document.querySelector("#new-comment-body");
     console.log(postId);
     console.log(newCommentBody);
@@ -19,7 +19,7 @@ const submitComment = async function (event) {
     if (response.ok) {
       document.location.replace("/");
     } else {
-      alert("Failed to post");
+      alert("Failed to create comment");
     }
   };
   

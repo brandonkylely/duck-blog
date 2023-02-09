@@ -6,23 +6,15 @@ const withAuth = require("../../utils/auth");
 // This should be a protected route, so you'll need to use the withAuth middleware
 router.post("/", withAuth, async (req, res) => {
   try {
-    console.log(req.body)
-    const userData = await User.findOne({
-      where: { id: req.session.userId },
-    });
-
-    const postData = await Post.findOne({
-      where: { id: req.body.postId },
-    });
-
+    
     const commentData = Comment.create({
-      userId: userData.id,
-      postId: postData.id,
       body: req.body.body,
+      userId: req.session.userId,
+      postId: req.body.postId,
     });
 
 
-    res.json({message: "comment created"});
+    res.status(200).json({message: "comment created"});
   } catch (err) {
     res.status(400).json(err);
   }

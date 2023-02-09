@@ -7,7 +7,7 @@
     <p>{{comment.user.username}} comments: {{comment.body}}</p>
 {{/each}}
 
-<form class="form new-comment-form" data="{{singlePost.id}}">
+<form class="form new-comment-form" data-postId="{{singlePost.id}}">
   <div class="form-group">
     <label for="new-comment-body">new comment</label>
     <textarea class="form-input" id="new-comment-body" name="new-comment-body"></textarea>
