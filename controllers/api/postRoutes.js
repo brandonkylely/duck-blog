@@ -18,7 +18,7 @@ router.post("/", withAuth, async (req, res) => {
       body: req.body.body,
     });
 
-    res.json({message: 'created post'});
+    res.status(200).json({message: 'created post'});
     // res.redirect("/dashboard")
   } catch (err) {
     res.status(400).json(err);
