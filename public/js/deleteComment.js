@@ -1,8 +1,9 @@
 const deleteComment = async function (event) {
     event.preventDefault();
 
-    const commentIdEl = document.querySelector("")
-    const commentId = commentIdEl.getAttribute('data-commentId');
+    // const commentIdEl = document.querySelector("")
+    // const commentId = commentIdEl.getAttribute('data-commentId');
+    const commentId = event.target.getAttribute('data-commentId')
   
     const response = await fetch(`/api/comment/${commentId}`, {
       method: "DELETE",

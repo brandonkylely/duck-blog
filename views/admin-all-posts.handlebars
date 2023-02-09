@@ -4,7 +4,7 @@
 <h3>your posts</h3>
 {{#each userPosts as |post|}}
 <h4>{{post.title}}</h4>
-<li data="{{post.id}}" class="post-id">
+<li>
     post id:{{post.id}}
     <br>
     {{post.user.username}} says: {{post.body}}
@@ -12,7 +12,9 @@
     <br>
     {{comment.user.username}} comments: {{comment.body}}
     {{/each}}
+<button data-postId="{{post.id}}" class="delete-post-button">delete post</button>
 </li>
 {{/each}}
 
 <a href="/dashboard/new">new post 2</a>
+<script src="/js/deletePost.js"></script>

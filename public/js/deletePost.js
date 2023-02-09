@@ -1,10 +1,13 @@
 const deletePost = async function (event) {
     event.preventDefault();
 
-    const postIdEl = document.querySelector("")
-    const postId = commentIdEl.getAttribute('data-postId');
+    // const postIdEl = document.querySelector("")
+    // const postId = commentIdEl.getAttribute('data-postId');
+    const postId = event.target.getAttribute('data-postId');
+    console.log(postId);
+    // console.log("hello")
   
-    const response = await fetch(`/api/comment/${postId}`, {
+    const response = await fetch(`/api/post/${postId}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
     });
@@ -16,4 +19,4 @@ const deletePost = async function (event) {
     }
   };
   
-  document.querySelector("").addEventListener("submit", deletePost);
+  document.querySelector(".delete-post-button").addEventListener("click", deletePost);
