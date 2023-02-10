@@ -5,7 +5,7 @@ const editPost = async function (event) {
     const newPostTitle = document.querySelector("#edit-post-title");
     const newPostBody = document.querySelector("#edit-post-body");
   
-    const response = await fetch(`/api/post/put/${postId}`, {
+    const response = await fetch(`/api/post/${postId}`, {
       method: "PUT",
       body: JSON.stringify({
         title: newPostTitle.value,
