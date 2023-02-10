@@ -1,4 +1,6 @@
 {{!-- call with {{> post}} --}}
+
+<div class="border-solid border-2 rounded-md border-slate-200">
 <h4>{{title}}</h4>
 <li>
     post id:{{id}}
@@ -13,3 +15,4 @@
 <a data-postId="{{id}}" href="/dashboard/edit/{{id}}">edit post</a>
 <button data-postId="{{id}}" class="delete-post-button">delete post</button>
 </li>
+</div>

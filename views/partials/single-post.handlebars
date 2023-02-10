@@ -1,3 +1,4 @@
+<div class="border-solid rounded-md border-slate-200">
 <h2>{{singlePost.title}}</h2>
 <br>
 <p>{{singlePost.body}}</p>
@@ -6,3 +7,4 @@
 {{#each singlePost.comments as |comment|}}
     <p>{{comment.user.username}} comments: {{comment.body}}</p>
 {{/each}}
+</div>
