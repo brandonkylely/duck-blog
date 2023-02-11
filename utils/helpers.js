@@ -3,6 +3,13 @@ module.exports = {
     // Helper function to format date 
     format_date: date => {
       return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
-    }
-    //add additional custom helpers here if needed
+    },
+    
+    limit: (arr, limit) => {
+      if (!Array.isArray(arr)) {
+        return [];
+      } else {
+        return arr.slice(0, limit);
+      }
+    },
   };

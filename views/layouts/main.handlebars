@@ -11,16 +11,22 @@
   </head>
 
   <body class="text-slate-300 bg-slate-800">
-    <nav class="flex-1">
-      <ul>
-        <li><a href="/" class="border-solid border-2 rounded-md border-slate-200 hover:border-t-4 my-10">Home</a></li>
-        <li><a href="/dashboard" class="border-solid border-2 rounded-md border-slate-200 hover:border-t-4 my-10">Dashboard</a></li>
-        <li><a href="/login" class="border-solid border-2 rounded-md border-slate-200 hover:border-t-4 my-10">Login</a></li>
-        <li><a href="#" id="logout-link" class="border-solid border-2 rounded-md border-slate-200 hover:border-t-4 my-10">Logout</a></li>
+        <header class="absolute">
+          <h1 class="border-solid border-2 rounded-md border-slate-200 hover:border-t-4 hover:font-bold font-semibold text-4xl">duck blog</h1>
+      </header>
+    <nav class="flex flex-row justify-end">
+        <a href="/" class="border-solid border-2 rounded-md border-slate-200 hover:border-t-4 hover:font-bold my-3 text-2xl p-1 mx-4">home</a>
+        <a href="/dashboard" class="border-solid border-2 rounded-md border-slate-200 hover:border-t-4 hover:font-bold my-3 text-2xl p-1 mx-4">dashboard</a>
+        {{#unless loggedIn}}
+        <a href="/login" class="border-solid border-2 rounded-md border-slate-200 hover:border-t-4 hover:font-bold my-3 text-2xl p-1 mx-4">login</a>
+        {{/unless}}
+        {{#if loggedIn}}
+        <a href="#" id="logout-link" class="border-solid border-2 rounded-md border-slate-200 hover:border-t-4 hover:font-bold my-3 text-2xl p-1 mx-4">logout</a>
+        {{/if}}
       </ul>
     </nav>
     <header>
-      <h1 class="border-solid border-2 rounded-md border-slate-200 hover:border-t-4 my-10 font-semibold font-4xl">the duck blog</h1>
+
     </header>
 
     <main>

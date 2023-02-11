@@ -1,12 +1,9 @@
-
-{{!-- TODO - write the template to show all the user's posts on the /dashboard route --}}
-{{!-- <h1>This is the dashboard main page that should display all of a users posts</h1> --}}
-<h3>your posts</h3>
+<h2 class="font-2xl">dashboard</h2>
 {{#each userPosts as |post|}}
 {{> admin-post}}
 {{/each}}
 <br>
-<a href="/dashboard/new">new post 2</a>
+<a href="/dashboard/new" class="border-solid border-2 rounded-md border-slate-200 hover:border-t-4 hover:font-bold font-semibold text-base">new post</a>
 {{#if userPosts}}
 <script src="/js/deletePost.js"></script>
 {{/if}}
