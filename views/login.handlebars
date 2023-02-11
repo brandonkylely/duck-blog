@@ -1,16 +1,21 @@
+<div class="text-center">
+
 <h2 class="font-2xl">login</h2>
 
-<form id="login-form" class="border-solid rounded-md border-slate-200">
-  <div>
+<form id="login-form" class="border-solid border-2 rounded-md border-slate-200 w-1/3">
+  <div class="py-2">
     <label for="username-input-login">Username</label>
     <input type="text" id="username-input-login" />
   </div>
-  <div>
+  <div class="py-2">
     <label for="password-input-login" class="form-label">Password</label>
     <input type="password" id="password-input-login" />
   </div>
-  <button type="submit">Login!</button>
-  <a type="button" href="/signup">Sign up instead</a>
+
+  <button type="submit" class="py-2 border-solid border-2 rounded-md border-slate-200">Login!</button>
+
+  <a type="button" href="/signup" class="py-2 border-solid border-2 rounded-md border-slate-200">Sign up instead</a>
 </form>
 
+</div>
 <script src="/js/login.js"></script>

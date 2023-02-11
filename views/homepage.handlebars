@@ -1,6 +1,6 @@
 <h2 class="font-2xl">homepage</h2>
 <div>
-{{#each allPosts as |post|}}
+{{#each (limit allPosts 50) as |post|}}
 {{> main-post}}
 {{/each}}
 </div>
