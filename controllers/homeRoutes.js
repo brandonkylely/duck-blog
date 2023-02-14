@@ -5,6 +5,16 @@ const { Post, Comment, User } = require("../models/");
 // TODO - work on GET route for getting all posts
 // this page can be viewed without logging in
 router.get("/", async (req, res) => {
+  console.log("counter " + req.session.counter);
+  console.log("id " + req.session.userId);
+  console.log("username " + req.session.username);
+  // req.session.counter=0;
+  if (req.session.counter < 0) {
+    req.session.counter = 0;
+  }
+  const pageLimit = 2;
+  const page = req.session.counter? (req.session.counter * pageLimit) : 0;
+  
   try {
     const postData = await Post.findAll(
       {
@@ -19,6 +29,8 @@ router.get("/", async (req, res) => {
           include: [{ model: User, attributes: ["username"] }],
       },
     ],
+      limit: pageLimit,
+      offset: page,
     });
 
     const allPosts = postData.map((post) => post.get({ plain: true }));

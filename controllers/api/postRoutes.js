@@ -2,15 +2,49 @@ const router = require("express").Router();
 const { User, Post } = require("../../models/");
 const withAuth = require("../../utils/auth");
 
+router.put("/next", (req, res) => {
+  // if (!req.session.counter) {
+  //   // console.log("range working");
+  //   req.session.save(() => {
+  //     req.session.counter = 1;
+  //     console.log("stuck " + req.session.counter);
+  //     res.json({message:"success", counter: req.session.counter})
+  //   });
+  // } else {
+    req.session.save(() => {
+      req.session.counter++;
+      console.log(req.session.counter);
+      res.json({message:"next success", counter: req.session.counter})
+    });
+  // }
+});
+
+router.put("/previous", (req, res) => {
+  // if (!req.session.counter) {
+  //   // console.log("range working");
+  //   req.session.save(() => {
+  //     req.session.counter = 1;
+  //     console.log("stuck " + req.session.counter);
+  //     res.json({message:"success", counter: req.session.counter})
+  //   });
+  // } else {
+    req.session.save(() => {
+      req.session.counter--;
+      console.log(req.session.counter);
+      res.json({message:"previous success", counter: req.session.counter})
+    });
+  // }
+});
+
 // TODO - create a POST route for creating a new post
 // This should be a protected route, so you'll need to use the withAuth middleware
 router.post("/", withAuth, async (req, res) => {
   try {
     console.log(req.body);
 
-    const userData = await User.findOne({
-      where: { id: req.session.userId },
-    });
+    // const userData = await User.findOne({
+    //   where: { id: req.session.userId },
+    // });
 
     await Post.create({
       userId: req.session.userId,
