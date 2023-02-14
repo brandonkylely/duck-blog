@@ -12,9 +12,10 @@ router.get("/", async (req, res) => {
   if (req.session.counter < 0) {
     req.session.counter = 0;
   }
-  const pageLimit = 2;
-  const page = req.session.counter? (req.session.counter * pageLimit) : 0;
-  
+
+  req.session.pageLimit = 3;
+  const page = req.session.counter? (req.session.counter * req.session.pageLimit) : 0;
+
   try {
     const postData = await Post.findAll(
       {
@@ -29,7 +30,7 @@ router.get("/", async (req, res) => {
           include: [{ model: User, attributes: ["username"] }],
       },
     ],
-      limit: pageLimit,
+      limit: req.session.pageLimit,
       offset: page,
     });
 
@@ -37,8 +38,9 @@ router.get("/", async (req, res) => {
 
     // console.log(allPosts);
 
-    res.render("homepage", { allPosts, loggedIn: req.session.loggedIn });
+    res.render("homepage", { allPosts, loggedIn: req.session.loggedIn, pageNumber: (req.session.counter + 1) });
   } catch (err) {
+    // req.session.counter = 0;
     res.status(500).json(err);
   }
 });

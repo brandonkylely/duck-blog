@@ -1,5 +1,6 @@
 <h2 class="font-2xl">homepage</h2>
 <div>
+<h3>page number: {{pageNumber}}</h3>
 {{#each (limit allPosts 50) as |post|}}
 {{> main-post}}
 {{/each}}

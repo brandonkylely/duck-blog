@@ -11,7 +11,10 @@ router.put("/next", (req, res) => {
   //     res.json({message:"success", counter: req.session.counter})
   //   });
   // } else {
-    req.session.save(() => {
+    req.session.save(async () => {
+      const totalCount = await Post.count();
+      console.log("TOTAL COUNT", totalCount)
+      if((req.session.counter+1) * req.session.pageLimit >= totalCount) return
       req.session.counter++;
       console.log(req.session.counter);
       res.json({message:"next success", counter: req.session.counter})
@@ -63,6 +66,14 @@ router.post("/", withAuth, async (req, res) => {
 // This should be a protected route, so you'll need to use the withAuth middleware
 router.put("/:id", withAuth, (req, res) => {
   try {
+  // const postData = Post.findOne({
+  //   where: {
+  //     userId: req.session.userId
+  //   }
+  // });
+
+  // if (postData.userId === req.session.userId) {
+  
   Post.update(
     {
       title: req.body.title,
@@ -75,6 +86,11 @@ router.put("/:id", withAuth, (req, res) => {
     }
   )
   res.status(200).json({message: 'edited post'});
+
+  // } else {
+  //   res.render('homepage')
+  // }
+
   }catch (err) {
     res.json(err);
   }
