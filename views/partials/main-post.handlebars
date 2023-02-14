@@ -8,6 +8,10 @@
     {{#each comments as |comment|}}
     <br>
     {{comment.user.username}} comments: {{comment.body}}
+    {{!-- {{#if (validate post userId)}}
+    <br>
+    <a data-commentId="{{comment.id}}" href="/dashboard/edit-comment/{{id}}" class="border-solid border-2 rounded-md border-slate-200 bg-slate-800 hover:border-t-4">edit comment</a>
+    {{/if}} --}}
     {{/each}}
 <br>
 <a href="/dashboard/comment/{{id}}">write a comment</a>

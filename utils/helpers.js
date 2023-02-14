@@ -12,4 +12,9 @@ module.exports = {
         return arr.slice(0, limit);
       }
     },
+
+    validate: (array, userId) => {
+      // does array post.comment.userId = req.session.userId?
+      array.comment.userId = userId;
+    }
   };
