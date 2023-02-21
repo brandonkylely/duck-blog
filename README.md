@@ -6,13 +6,11 @@
 
   [Description](#description)
 
-  [Installation](#installation)
-
   [Usage](#usage)
 
   [Contribution](#contribution)
 
-  [Testing](#testing)
+  [Deployed Website](#deployed-website)
 
   [Questions](#questions)
 
@@ -22,21 +20,24 @@
   
   Duck Blog is intended to be a satirical tech blog.
 
-  ## Installation
-
-  n/a
 
   ## Usage
 
   first time ducks should sign up with an account, afterwards, they and returning ducks may login using their account username and password. on the top right, ducks may navigate home, to their dashboard, or logout. the home page displays the most recent posts and comments made on the duck blog. the dashboard will display a duck's posts, and here they can edit, delete, or create posts of their own. a next and previous page button is located on the bottom of the page, for ducks to navigate between older and newer posts respectively.
 
+  ducks can browse the home page without an account, but you should make one because it's funny.
+
   ## Contribution
 
   n/a
 
-  ## Testing
+  ## Deployed Website
 
-  n/a
+  https://the-duck-blog.herokuapp.com/
+
+  ## Site image
+
+  ![feb2023](./assets/siteimagefeb2023.jpg)
 
   ## Questions
 
