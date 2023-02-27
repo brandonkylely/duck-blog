@@ -6,7 +6,14 @@ module.exports = {
     './index.html'
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "white-yellow": "#fffff2",
+        "orange-sorbet": "#ffae42",
+        "dark-orange": "#8b4000"
+    }
+
+    },
   },
   plugins: [],
 }
