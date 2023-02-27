@@ -1,5 +1,5 @@
-<div class="px-12 py-10">    
-    <h2 class="text-2xl font-bold text-navy">dashboard</h2>
+<div class="px-12 py-10 w-10/12">
+<h2 class="text-3xl font-bold text-navy ">{{currentUser.username}}'s' ducky dashboard</h2>   
     {{#each userPosts as |post|}}
     {{> admin-post}}
     {{/each}}
