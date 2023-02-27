@@ -1,11 +1,17 @@
 <h2 class="font-2xl">homepage</h2>
 <div>
+{{#if pageNumber}}
 <h3>page number: {{pageNumber}}</h3>
+{{else}}
+<h3>page number: 1</h3>
+{{/if}}
 {{#each (limit allPosts 50) as |post|}}
 {{> main-post}}
 {{/each}}
 </div>
+{{#ifGreaterThan pageNumber 1 }}
 <button id="previous-page-button" class="border-solid border-2 rounded-md border-slate-200 w-1/4 hover:border-t-4 hover:font-bold">previous page</button>
+{{/ifGreaterThan}}
 <button id="next-page-button" class="border-solid border-2 rounded-md border-slate-200 w-1/4 hover:border-t-4 hover:font-bold">next page</button>
 <script src="/js/nextPage.js"></script>
 <script src="/js/previousPage.js"></script>
