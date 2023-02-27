@@ -1,10 +1,14 @@
-<div class="px-12 py-10 w-10/12">
-<h2 class="text-3xl font-bold text-navy ">{{currentUser.username}}'s' ducky dashboard</h2>   
+<div class="px-12 py-10 w-11/12">
+<div class="flex justify-between">
+    <h2 class="text-4xl font-bold text-navy ">{{currentUser.username}}'s' duckboard </h2>
+    <a class="border-0 rounded-lg hover:bg-gray-100 px-2 pt-2" href="/dashboard/new"><i class="fa-regular fa-square-plus"></i> new post</a>
+</div>
+     {{#if userPosts}}
     {{#each userPosts as |post|}}
     {{> admin-post}}
     {{/each}}
-    <a href="/dashboard/new" class="">new post</a>
-    {{#if userPosts}}
     <script src="/js/deletePost.js"></script>
+    {{else}}
+    <div class="mx-auto text-orange-sorbet text-bold text-3xl">you haven't quacked yet!</div>
     {{/if}}
 </div>
