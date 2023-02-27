@@ -20,12 +20,7 @@
       <div class="w-48 px-auto text-2xl py-10">
         <div class="my-2 hover:bg-gray-600 border-0 rounded-lg hover:bg-opacity-5 border-orange-sorbet"><i class="fa-solid fa-house w-8 "></i> <a href="/" class="">home</a></div> 
         <div class="my-2 hover:bg-gray-600 border-0 rounded-lg hover:bg-opacity-5 border-orange-sorbet"><i class="fa-solid fa-square-poll-horizontal w-8"></i><a href="/dashboard" class="">dashboard</a></div>
-        {{#unless loggedIn}}
-        <div class="my-2 hover:bg-gray-600 border-0 rounded-lg hover:bg-opacity-5 border-orange-sorbet"><i class="fa-solid fa-right-to-bracket w-8"></i><a href="/login" class="">login</a></div>
-        {{/unless}}
-        {{#if loggedIn}}
         <div class="my-2 hover:bg-gray-600 border-0 rounded-lg hover:bg-opacity-5 border-orange-sorbet"><i class="fa-solid fa-right-from-bracket w-8"></i><a href="#" id="logout-link" class="">logout</a></div>
-        {{/if}}
       </div>
     </nav>
 
