@@ -1,9 +1,10 @@
-<h2 class="">dashboard</h2>
-{{#each userPosts as |post|}}
-{{> admin-post}}
-{{/each}}
-<br>
-<a href="/dashboard/new" class="">new post</a>
-{{#if userPosts}}
-<script src="/js/deletePost.js"></script>
-{{/if}}
+<div class="px-12 py-10">    
+    <h2 class="text-2xl font-bold text-navy">dashboard</h2>
+    {{#each userPosts as |post|}}
+    {{> admin-post}}
+    {{/each}}
+    <a href="/dashboard/new" class="">new post</a>
+    {{#if userPosts}}
+    <script src="/js/deletePost.js"></script>
+    {{/if}}
+</div>
