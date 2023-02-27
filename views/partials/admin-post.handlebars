@@ -1,4 +1,4 @@
-<div class="border-solid border-2 rounded-md border-slate-200">
+<div class="">
 <h4>{{title}}</h4>
 <li>
     post id:{{id}}
@@ -11,7 +11,7 @@
     {{comment.user.username}} comments: {{comment.body}}
     {{/each}}
 <br>
-<a data-postId="{{id}}" href="/dashboard/edit/{{id}}" class="border-solid border-2 rounded-md border-slate-200 bg-slate-800 hover:border-t-4">edit post</a>
+<a data-postId="{{id}}" href="/dashboard/edit/{{id}}" class="">edit post</a>
 <br>
 <button data-postId="{{id}}" class="delete-post-button border-solid border-2 rounded-md border-slate-200 bg-slate-800 hover:border-t-4">delete post</button>
 </li>
