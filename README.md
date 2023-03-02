@@ -37,7 +37,7 @@
 
   ## Site image
 
-  ![feb2023](./assets/siteimagefeb2023.jpg)
+  ![feb2023](./assets/siteimagemar23.jpg)
 
   ## Questions
 
