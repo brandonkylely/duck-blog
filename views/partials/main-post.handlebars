@@ -19,9 +19,15 @@
                 </div>
             </div>
         </div>
+        {{#if loggedIn}}
         <div class="flex justify-center pt-2">
             <a class="border-0 rounded-lg hover:bg-gray-100 p-1" data-postId="{{id}}" href="/dashboard/comment/{{id}}"><i class="fa-solid fa-pencil"></i> </i><i class="fa-regular fa-comment"></i> comment</a>
         </div>
+        {{else}}
+        <div class="flex justify-center pt-2">
+            <a class="border-0 rounded-lg hover:bg-gray-100 p-1" href="/login"><i class="fa-solid fa-pencil"></i> </i><i class="fa-regular fa-comment"></i>login to comment</a>
+        </div>
+        {{/if}}
     </div>
 </div>
 

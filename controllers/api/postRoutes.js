@@ -11,7 +11,6 @@ router.put("/next", (req, res) => {
       console.log(req.session.counter);
       res.json({message:"next success", counter: req.session.counter})
     });
-  // }
 });
 
 router.put("/previous", (req, res) => {
