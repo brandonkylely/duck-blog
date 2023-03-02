@@ -10,6 +10,9 @@ const withAuth = require("../utils/auth");
 // TODO - create logic for the GET route for / that renders the dashboard homepage
 // It should display all of the posts created by the logged in user
 router.get("/", withAuth, async (req, res) => {
+  const userData = await User.findOne({
+    where: { id: req.session.userId},
+  })
 
   const postData = await Post.findAll({
       where: { userId: req.session.userId },
@@ -27,10 +30,11 @@ router.get("/", withAuth, async (req, res) => {
   });
 
   const userPosts = postData.map(post => post.get({ plain: true }));
+  const currentUser = userData.get({ plain: true });
 
   console.log(userPosts);
 
-  res.render("admin-all-posts", { layout: "dashboard", userPosts });
+  res.render("admin-all-posts", { layout: "dashboard", userPosts, currentUser });
 });
 
 // TODO - create logic for the GET route for /new that renders the new post page

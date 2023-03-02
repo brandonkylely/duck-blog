@@ -1,18 +1,28 @@
-<div class="border-solid border-2 rounded-md border-slate-200">
-<h4>{{title}}</h4>
-<li>
-    post id:{{id}}
-    <br>
-    {{user.username}} says: {{body}}
-    <br>
-    posted at: {{format_date createdAt}}
-    {{#each comments as |comment|}}
-    <br>
-    {{comment.user.username}} comments: {{comment.body}}
-    {{/each}}
-<br>
-<a data-postId="{{id}}" href="/dashboard/edit/{{id}}" class="border-solid border-2 rounded-md border-slate-200 bg-slate-800 hover:border-t-4">edit post</a>
-<br>
-<button data-postId="{{id}}" class="delete-post-button border-solid border-2 rounded-md border-slate-200 bg-slate-800 hover:border-t-4">delete post</button>
-</li>
+<div class="text-navy ml-16 px-4 pt-2 pb-1 border border-navy rounded-xl my-3 bg-white-yellower">
+    <div class="grid grid-cols-2 w-full">
+        <div class="font-bold text-3xl"><i class="fa-solid fa-kiwi-bird"></i> {{title}} </div>
+        <div class="text-orange-sorbet font-semibold text-right text-base pr-4">{{format_date createdAt}}</div>
+    </div>
+    {{!-- <div class="">post id:{{id}}</div>  --}}
+    <div class="pl-4 divide-y-2 divide-black">
+        <div class="">
+            <div class="text-xl font-bold py-2"><i class="fa-solid fa-feather-pointed"></i> {{body}}</div>
+            <div class="pl-20 text-orange-sorbet">
+                <div class="text-base font-semibold"><i class="fa-regular fa-comment"></i> comments <i class="fa-solid fa-arrow-down"></i></div>
+                <div>
+                {{#if comments}}
+                    {{#each comments as |comment|}}
+                        <div class="pl-8 font-semiboldpt-1 my-1"><i class="fa-solid fa-feather-pointed"></i> {{comment.user.username}}: {{comment.body}}</div>
+                    {{/each}}
+                {{else}}
+                    <br>
+                {{/if}}
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-around pt-2">
+            <a class="border-0 rounded-lg hover:bg-gray-100 p-1" data-postId="{{id}}" href="/dashboard/edit/{{id}}"><i class="fa-solid fa-pen-to-square"></i> edit post</a>
+            <button class="delete-post-button border-0 rounded-lg hover:bg-gray-100 p-1" data-postId="{{id}}" ><i class="fa-solid fa-dumpster"></i> delete post</button>
+        </div>
+    </div>
 </div>

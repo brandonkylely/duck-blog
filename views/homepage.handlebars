@@ -1,11 +1,24 @@
-<h2 class="font-2xl">homepage</h2>
-<div>
-<h3>page number: {{pageNumber}}</h3>
-{{#each (limit allPosts 50) as |post|}}
-{{> main-post}}
-{{/each}}
+<div class="px-12 py-10 w-11/12">
+    <div class="flex justify-start">
+        <h2 class="text-4xl font-bold text-navy ">homepage <i class="fa-solid fa-house w-8 "></i></h2>
+    </div>
+    <div>
+
+    {{#each (limit allPosts 50) as |post|}}
+    {{> main-post}}
+    {{/each}}
+    </div>
+    <div class="grid grid-cols-11 text-center mb-12 mt-3 text-3xl">
+        {{#ifGreaterThan pageNumber 1 }}
+        <button id="previous-page-button" class="col-start-5 text-right"><i class="fa-solid fa-circle-arrow-left"></i></button>
+        <script src="/js/previousPage.js"></script>
+        {{/ifGreaterThan}}
+            {{#if pageNumber}}
+        <h3 class="col-start-6">{{pageNumber}}</h3>
+        {{else}}
+        <h3 class="col-start-6">1</h3>
+        {{/if}}
+        <button id="next-page-button" class="text-left"><i class="fa-solid fa-circle-arrow-right"></i></button>
+    </div>
 </div>
-<button id="previous-page-button" class="border-solid border-2 rounded-md border-slate-200 w-1/4 hover:border-t-4 hover:font-bold">previous page</button>
-<button id="next-page-button" class="border-solid border-2 rounded-md border-slate-200 w-1/4 hover:border-t-4 hover:font-bold">next page</button>
 <script src="/js/nextPage.js"></script>
-<script src="/js/previousPage.js"></script>

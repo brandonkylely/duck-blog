@@ -1,17 +1,19 @@
 {{> single-post}}
-
-<form class="form edit-post-form" data-postId="{{singlePost.id}}">
-  <div class="form-group">
-    <label for="edit-post-body">title</label>
-    <input class="form-input text-slate-800" type="text" id="edit-post-title" name="edit-post-title"/>
-  </div>
-  <div class="form-group">
-    <label for="edit-post-body">body</label>
-    <textarea class="form-input text-slate-800" id="edit-post-body" name="edit-post-body"></textarea>
-  </div>
-  <div class="form-group">
-    <button type="submit" class="hover:font-bold">submit edited post</button>
-  </div>
-</form>
+<div class="my-20">
+  <form class="edit-post-form mx-auto w-2/3 text-navy px-4 border border-navy rounded-xl my-3 bg-white-yellower" data-postId="{{singlePost.id}}">
+    <div class="text-left">
+      <label for="edit-post-body" class="text-2xl font-bold py-3">editing...</label>
+      <br>
+      <input class="h-10 w-1/2 border-2 border-navy rounded-lg" type="text" id="edit-post-title" name="edit-post-title"/>
+    </div>
+    <div class="form-group py-1">
+      {{!-- <label for="edit-post-body">body</label> --}}
+      <textarea class="form-input h-32 w-11/12 border-2 border-navy rounded-lg" id="edit-post-body" name="edit-post-body"></textarea>
+    </div>
+    <div class="">
+      <button type="submit" class="my-1 border-2 rounded-lg hover:bg-gray-100 p-1 mt-2 font-semibold hover:border-navy">submit edited post</button>
+    </div>
+  </form>
+</div>
 
 <script src="/js/editPost.js"></script>

@@ -1,9 +1,16 @@
-<h2 class="font-2xl">dashboard</h2>
-{{#each userPosts as |post|}}
-{{> admin-post}}
-{{/each}}
-<br>
-<a href="/dashboard/new" class="border-solid border-2 rounded-md border-slate-200 hover:border-t-4 hover:font-bold font-semibold text-base">new post</a>
-{{#if userPosts}}
-<script src="/js/deletePost.js"></script>
-{{/if}}
+<div class="px-12 py-10 w-11/12">
+    <div class="flex justify-between">
+        <h2 class="text-4xl font-bold text-navy ">{{currentUser.username}}'s' duckboard <i class="fa-solid fa-square-poll-horizontal w-8"></i></h2>
+        <a class="border-0 rounded-lg hover:bg-gray-100 px-2 pt-2" href="/dashboard/new"><i class="fa-regular fa-square-plus"></i> new post</a>
+    </div>
+     {{#if userPosts}}
+    {{#each userPosts as |post|}}
+    {{> admin-post}}
+    {{/each}}
+    <script src="/js/deletePost.js"></script>
+    {{else}}
+    <div class="py-56 text-center text-orange-sorbet text-bold text-3xl">no posts yet! 
+        <br>
+        make new posts and they'll show up here!</div>
+    {{/if}}
+</div>

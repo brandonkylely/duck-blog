@@ -1,19 +1,37 @@
-<div class="border-solid border-2 rounded-md border-slate-200 w-1/4">
-<h4>{{title}}</h4>
-<li>
-    {{user.username}} says: {{body}}
-    <br>
-        posted at: {{format_date createdAt}}
-    <p>------------------------------------</p>
-    {{#each comments as |comment|}}
-    <br>
-    {{comment.user.username}} comments: {{comment.body}}
+<div class="text-navy ml-16 px-4 pt-2 pb-1 border border-navy rounded-xl my-3 bg-white-yellower">
+    <div class="grid grid-cols-2 w-full">
+        <div class="font-bold text-3xl"><i class="fa-solid fa-kiwi-bird"></i> {{title}} <span class="text-sm font-semibold"><i class="fa-solid fa-user"></i> {{user.username}}</span></div>
+        <div class="text-orange-sorbet font-semibold text-right text-base pr-4">{{format_date createdAt}}</div>
+    </div>
+    <div class="pl-4 divide-y-2 divide-black">
+        <div class="">
+            <div class="text-xl font-bold py-2"><i class="fa-solid fa-feather-pointed"></i> {{body}}</div>
+            <div class="pl-20 text-orange-sorbet">
+                <div class="text-base font-semibold"><i class="fa-regular fa-comment"></i> comments <i class="fa-solid fa-arrow-down"></i></div>
+                <div>
+                {{#if comments}}
+                    {{#each comments as |comment|}}
+                        <div class="pl-8 font-semiboldpt-1 my-1"><i class="fa-solid fa-feather-pointed"></i> {{comment.user.username}}: {{comment.body}}</div>
+                    {{/each}}
+                {{else}}
+                    <br>
+                {{/if}}
+                </div>
+            </div>
+        </div>
+        {{#if loggedIn}}
+        <div class="flex justify-center pt-2">
+            <a class="border-0 rounded-lg hover:bg-gray-100 p-1" data-postId="{{id}}" href="/dashboard/comment/{{id}}"><i class="fa-solid fa-pencil"></i> </i><i class="fa-regular fa-comment"></i> comment</a>
+        </div>
+        {{else}}
+        <div class="flex justify-center pt-2">
+            <a class="border-0 rounded-lg hover:bg-gray-100 p-1" href="/login"><i class="fa-solid fa-pencil"></i> </i><i class="fa-regular fa-comment"></i>login to comment</a>
+        </div>
+        {{/if}}
+    </div>
+</div>
+
     {{!-- {{#if (validate post userId)}}
     <br>
     <a data-commentId="{{comment.id}}" href="/dashboard/edit-comment/{{id}}" class="border-solid border-2 rounded-md border-slate-200 bg-slate-800 hover:border-t-4">edit comment</a>
     {{/if}} --}}
-    {{/each}}
-<br>
-<a href="/dashboard/comment/{{id}}">write a comment</a>
-</li>
-</div>
