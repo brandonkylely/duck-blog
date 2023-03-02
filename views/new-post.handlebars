@@ -1,23 +1,18 @@
-{{!-- <div class="flex-contatiner">
-    <h4>create a new post</h4>
-    <label class="text-white form-label">title</label>
-    <textarea id="new-post-title" cols="30" rows="5"></textarea>
-    <label class="text-white form-label">body</label>
-    <textarea id="new-post-body" cols="30" rows="5"></textarea>
-    <button type="submit" id="submit-post-button">submit</button>
-</div> --}}
-<form class="form new-post-form">
-  <div class="form-group">
-    <label for="new-post-body">title</label>
-    <input class="form-input" type="text" id="new-post-title" name="new-post-title"/>
-  </div>
-  <div class="form-group">
-    <label for="new-post-body">body</label>
-    <textarea class="form-input" id="new-post-body" name="new-post-body"></textarea>
-  </div>
-  <div class="form-group">
-    <button type="submit" class="">submit post</button>
-  </div>
-</form>
+<div class="my-20">
+  <form class="new-post-form mx-auto w-2/3 text-navy px-4 border border-navy rounded-xl my-3 bg-white-yellower">
+    <div class="form text-left">
+      <label for="new-post-body" class="text-2xl font-bold py-3">title</label>
+      <br>
+      <input class="form-input h-10 w-1/2 border-2 border-navy rounded-lg" type="text" id="new-post-title" name="new-post-title"/>
+    </div>
+    <div class="form-group py-1">
+      {{!-- <label for="new-post-body" class="text-2xl font-bold py-3">body</label> --}}
+      <textarea class="form-input h-32 w-11/12 border-2 border-navy rounded-lg" id="new-post-body" name="new-post-body"></textarea>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="my-1 border-2 rounded-lg hover:bg-gray-100 p-1 mt-2 font-semibold hover:border-navy">submit post</button>
+    </div>
+  </form>
+</div>
 
 <script src="/js/createPost.js"></script>

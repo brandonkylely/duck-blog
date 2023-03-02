@@ -9,9 +9,13 @@
             <div class="pl-20 text-orange-sorbet">
                 <div class="text-base font-semibold"><i class="fa-regular fa-comment"></i> comments <i class="fa-solid fa-arrow-down"></i></div>
                 <div>
+                {{#if comments}}
                     {{#each comments as |comment|}}
                         <div class="pl-8 font-semiboldpt-1 my-1"><i class="fa-solid fa-feather-pointed"></i> {{comment.user.username}}: {{comment.body}}</div>
                     {{/each}}
+                {{else}}
+                    <br>
+                {{/if}}
                 </div>
             </div>
         </div>
