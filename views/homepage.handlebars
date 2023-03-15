@@ -4,9 +4,15 @@
     </div>
     <div>
 
-    {{#each (limit allPosts 50) as |post|}}
-    {{> main-post}}
-    {{/each}}
+    {{#if loggedIn}}
+      {{#each (limit allPosts 50) as |post|}}
+            {{> main-post }}
+      {{/each}}
+    {{else}}
+      {{#each (limit allPosts 50) as |post|}}
+            {{> main-post-view }}
+      {{/each}}
+    {{/if}}
     </div>
     <div class="grid grid-cols-11 text-center mb-12 mt-3 text-3xl">
         {{#ifGreaterThan pageNumber 1 }}
