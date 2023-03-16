@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
   console.log("id " + req.session.userId);
   console.log("username " + req.session.username);
   // req.session.counter=0;
-  if (req.session.counter < 0) {
+  if (!req.session.counter || req.session.counter < 0) {
     req.session.counter = 0;
   }
 
