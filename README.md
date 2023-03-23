@@ -60,7 +60,7 @@
 
   ## Contribution Guidelines 🤝
 
-  This web application is a solo project. For any inquiries about project collaboration or business inquiries, please contact me using my information below!
+  This web application is a solo project. For any inquiries about project collaboration, or any business inquiries, please contact me using my information below!
 
   ## Developer Info 🤓
 
