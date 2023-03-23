@@ -6,9 +6,13 @@
   
   Duck Blog is intended to be a satirical tech blog.
 
-  ### Site 💡
+  ### Site Link 💡
+
+  ---
 
   https://the-duck-blog.herokuapp.com/
+
+  ---
 
   ![march23](./assets/siteimagemar23.png)
 
